@@ -7,6 +7,8 @@ using UnityEngine.SceneManagement;
 
 public class GeoController : MonoBehaviour
 {
+    private SpriteRenderer _SpriteRenderer;
+
         private Rigidbody2D rb;
     private SpriteRenderer sr;
         private int variable1 = 5;
@@ -20,6 +22,7 @@ public class GeoController : MonoBehaviour
     {
         rb = GetComponent<Rigidbody2D>();
         sr = GetComponent<SpriteRenderer>();
+        _SpriteRenderer = GetComponentInChildren<SpriteRenderer>();
       //Debug.Log(Var1 + " World");
     }
 
