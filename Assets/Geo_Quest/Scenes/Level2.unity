@@ -760,7 +760,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 5
-  nextLevel: Level1
+  nextLevel: Level2
+  Level3: Level3
 --- !u!1001 &911791968046091402
 PrefabInstance:
   m_ObjectHideFlags: 0
