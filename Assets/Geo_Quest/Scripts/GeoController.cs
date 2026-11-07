@@ -9,23 +9,45 @@ public class GeoController : MonoBehaviour
 {
     private SpriteRenderer _SpriteRenderer;
 
-        private Rigidbody2D rb;
+    private Rigidbody2D rb;
     private SpriteRenderer sr;
-        private int variable1 = 5;
-        public int speed = 5;
+    private int variable1 = 5;
+    public int speed = 5;
     public string nextLevel = "Level2";
     public string Level3 = "Level3";
+    public float Jumpforce = 10f;
+    
+
+    // Capsule 
+    public float CapsuleHeight = 0.25f;
+    public float CapsuleRadius = 0.08f;
+
+    // GroundCheck
+    public Transform feetCollider;
+    public LayerMask groundmask;
+    private bool _groundCheck;
+
+
 
 
     string Var1 = "Hello";
-        int var2 = 3;
+    int var2 = 3;
     // Start is called before the first frame update
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
         sr = GetComponent<SpriteRenderer>();
         _SpriteRenderer = GetComponentInChildren<SpriteRenderer>();
-      //Debug.Log(Var1 + " World");
+        float xInput = Input.GetAxis("Horizontal");
+        rb.velocity = new Vector2(xInput * speed, rb.velocity.y);
+
+        if (Input.GetKeyDown(KeyCode.Space))
+        {
+            rb.velocity = new Vector2(rb.velocity.x, Jumpforce);
+        }
+        if (xInput > 0) {sr.flipX = true;}
+        else {  sr.flipX = false; }
+        //Debug.Log(Var1 + " World");
     }
 
     // Update is called once per frame
